@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>olive. 7天地中海饮食·全球第一的长寿吃法</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Georgia,"Songti SC","Noto Serif SC",serif;background:#F5F0E6;color:#274156;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+/* 封面 */
+.hero{position:relative;text-align:center;padding:72px 0 46px;border-bottom:1px solid #C9BFA6}
+.hero img{width:100%;height:200px;object-fit:cover;border-radius:4px;opacity:.94}
+.kick{font-size:.66rem;letter-spacing:.34em;color:#3E8FBF;font-family:Courier New,monospace;margin-top:26px}
+h1{font-size:2.6rem;font-weight:400;font-style:italic;margin:6px 0 2px}
+h1 .dot{color:#C96F3B;font-style:normal}
+.sub{font-size:.9rem;color:#5B7186}
+.sub2{font-size:.74rem;color:#8A9AB0;margin-top:4px}
+/* 数字背书 */
+.facts{display:flex;gap:12px;margin:34px 0 6px}
+.fact{flex:1;text-align:center;background:#FBF8F1;border:1px solid #DDD5C2;padding:16px 8px;border-radius:4px}
+.fact b{display:block;font-size:1.55rem;font-weight:400;color:#1B5E8C}
+.fact span{font-size:.66rem;color:#7A8BA0;line-height:1.5;display:block;margin-top:4px}
+/* 区块 */
+section{padding:44px 0 6px}
+.stitle{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.stitle .no{font-size:.68rem;letter-spacing:.28em;color:#3E8FBF;font-family:Courier New,monospace}
+.stitle h2{font-size:1.3rem;font-weight:400}
+.stitle h2 em{font-style:italic;color:#1B5E8C}
+/* 原则 */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{background:#FBF8F1;border:1px solid #DDD5C2;border-radius:4px;padding:16px 15px}
+.rule b{font-size:.95rem;font-weight:700}
+.rule b i{font-style:normal;color:#C96F3B;font-family:Courier New,monospace;font-size:.8rem;margin-right:8px}
+.rule p{font-size:.76rem;color:#5B7186;margin-top:6px;line-height:1.7}
+/* 菜单 */
+.day{background:#FBF8F1;border:1px solid #DDD5C2;border-radius:4px;margin-bottom:14px;overflow:hidden}
+.dhead{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer}
+.dhead .dw{font-size:1.05rem;font-weight:700}
+.dhead .de{font-size:.62rem;letter-spacing:.24em;color:#3E8FBF;font-family:Courier New,monospace}
+.dhead .tick{margin-left:auto;width:30px;height:30px;border-radius:50%;border:1px solid #C9BFA6;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#B9AE93;flex-shrink:0}
+.day.done .tick{background:#1B5E8C;border-color:#1B5E8C;color:#F5F0E6}
+.day.today .dw::after{content:"·今天";font-size:.62rem;color:#C96F3B;margin-left:6px;font-weight:400}
+.meals{display:none;padding:2px 18px 16px;border-top:1px dashed #DDD5C2}
+.day.open .meals{display:block}
+.meal{margin-top:12px}
+.meal .mt{font-size:.62rem;letter-spacing:.24em;color:#C96F3B;font-family:Courier New,monospace}
+.meal p{font-size:.86rem;color:#33475C;margin-top:2px}
+.dayhint{font-size:.7rem;color:#8A9AB0;margin:8px 0 0;text-align:center}
+/* 平替 */
+.subs{display:grid;gap:10px}
+.subrow{display:flex;gap:10px;background:#FBF8F1;border:1px solid #DDD5C2;border-radius:4px;padding:12px 15px;align-items:baseline;flex-wrap:wrap}
+.subrow .a{font-weight:700;font-size:.9rem;color:#274156}
+.subrow .arr{color:#3E8FBF;font-size:.8rem}
+.subrow .b{font-size:.8rem;color:#5B7186;flex:1;min-width:180px}
+/* 图带 */
+.band{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.band img{width:100%;height:110px;object-fit:cover;border-radius:4px}
+/* 出处 */
+.src{font-size:.68rem;color:#8A9AB0;line-height:1.9;padding-bottom:8px}
+.src b{color:#5B7186}
+.foot{text-align:center;padding:34px 0 60px;border-top:1px solid #C9BFA6;margin-top:40px}
+.foot .ol{font-size:1.5rem;font-style:italic}
+.foot .ol .dot{color:#C96F3B;font-style:normal}
+.foot p{font-size:.66rem;color:#8A9AB0;margin-top:6px;letter-spacing:.1em}
+#toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(20px);background:#274156;color:#F5F0E6;font-size:.78rem;padding:9px 20px;border-radius:99px;opacity:0;transition:.3s;pointer-events:none;z-index:99}
+#toast.on{opacity:1;transform:translateX(-50%)}
+@media(max-width:420px){.facts{flex-direction:column;gap:8px}.fact{padding:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header class="hero">
+  <img src="olive.jpg" alt="olive">
+  <div class="kick">MEDITERRANEAN · 7-DAY TABLE</div>
+  <h1>olive<span class="dot">.</span></h1>
+  <div class="sub">7 天地中海饮食 · 全球第一的长寿吃法</div>
+  <div class="sub2">The Mediterranean Diet — an eating pattern, not a diet plan</div>
+  <div class="facts" id="facts"></div>
+ </header>
+
+ <section>
+  <div class="stitle"><span class="no">N°1</span><h2>为什么说它是<em>全球第一</em></h2></div>
+  <p class="lead" style="font-size:.86rem;color:#5B7186">它不是减肥食谱，而是一整套「怎么吃」的生活方式——以植物性食物为底，好油担当主角，糖和深加工食品退到幕后。医学界对它的好感来自几十年、几十万人的队列研究，和一场改写指南的随机对照试验。</p>
+  <div class="band">
+   <img src="salad.jpg" alt="greek salad">
+   <img src="fish.jpg" alt="salmon">
+  </div>
+ </section>
+
+ <section>
+  <div class="stitle"><span class="no">N°2</span><h2>八条核心原则</h2></div>
+  <div class="rules" id="rules"></div>
+ </section>
+
+ <section>
+  <div class="stitle"><span class="no">N°3</span><h2>7 天餐桌<em>直接抄作业</em></h2></div>
+  <div id="days"></div>
+  <p class="dayhint">点开每一天 · 吃过就点右侧圆圈点亮 · 7/7 有一份小毕业礼</p>
+ </section>
+
+ <section>
+  <div class="stitle"><span class="no">N°4</span><h2>中国厨房<em>平替智慧</em></h2></div>
+  <div class="subs" id="subs"></div>
+ </section>
+
+ <section>
+  <div class="stitle"><span class="no">N°5</span><h2>真实出处</h2></div>
+  <div class="src">
+   <b>榜单背书：</b>U.S. News &amp; World Report「最佳饮食」年度评选——地中海饮食连续 7 年位居综合榜第一。<br>
+   <b>科学背书：</b>PREDIMED 随机对照试验（New England Journal of Medicine）——地中海饮食+橄榄油/坚果组心血管事件风险显著下降约 30%。<br>
+   <b>7 天菜单：</b>整理自 U.S. News 榜单配套示例菜单（约 1800 kcal 版本），并结合中文家庭厨房做了可读化转写；灵感原帖来自小红书《7 天地中海饮食，全球第一的长寿吃法》。<br>
+   <b>小提醒：</b>本页为生活方式分享，非医疗建议；有慢性病或特殊体质，请先与医生聊聊再开始。
+  </div>
+ </section>
+
+ <div class="foot">
+  <div class="ol">olive<span class="dot">.</span></div>
+  <p>EAT SLOW · LIVE LONG · KALI OREXI（希腊语：好胃口）</p>
+ </div>
+</div>
+<div id="toast"></div>
+<script>
+var FACTS=[["№1", "U.S. News 年度最佳饮食榜，连续 7 年位居榜首"], ["-30%", "PREDIMED 随机对照试验：心血管事件风险下降约三成（NEJM）"], ["5 区", "蓝区研究：全球五个长寿之乡的餐桌，都指向同一套吃法"]];
+var RULES=[["好油打底", "特级初榨橄榄油每天 2–4 勺，拌菜蘸面包都行——它是地中海饮食的心脏", "🫒"], ["蔬果管够", "每天 400g+ 蔬菜水果，大约 5–9 份，颜色越多越好", "🍅"], ["全谷当主食", "面包、意面、米饭都选 100% 全麦，纤维是长寿的底座", "🌾"], ["每周 2–3 次鱼", "三文鱼、沙丁鱼、鳕鱼——Omega-3 是抗炎主力", "🐟"], ["红肉降级", "红肉每月几次就好，加工肉尽量避免；蛋白质交给鱼豆鸡", "🥩"], ["每天一把坚果", "约 30g：核桃、杏仁、榛子，下午饿了先想到它", "🥜"], ["豆类每周 3 次", "鹰嘴豆、扁豆、白豆——蓝区百岁老人的共同答案", "🫘"], ["香草代盐", "牛至罗勒迷迭香……风味上来后，盐和糖自然退场", "🌿"]];
+var DAYS=[{"d": "周一", "en": "MONDAY", "b": "燕麦粥（1/2杯燕麦+1杯低脂牛奶）·草莓·奇亚籽·肉桂", "l": "全麦面包夹低脂莫扎里拉·樱桃番茄·罗勒；羽衣甘蓝橄榄沙拉配油醋汁", "s": "核桃 15 颗；浆果一小碗", "dn": "芝麻菜全麦意面配烤金枪鱼，橄榄与圣女果"}, {"d": "周二", "en": "TUESDAY", "b": "全麦吐司·低脂奶酪·彩椒蘑菇菠菜烘蛋", "l": "白豆扁豆汤：白腰豆·圣女果·菠菜·帕玛森", "s": "杏仁 15-30 颗；胡萝卜条蘸鹰嘴豆泥", "dn": "全麦皮塔饼·烤鸡胸·芦笋·一段烤玉米"}, {"d": "周三", "en": "WEDNESDAY", "b": "燕麦片+低脂牛奶·苹果·肉桂", "l": "全麦面包+蔬菜浓汤（芝士焗番茄菠菜）", "s": "花生酱芹菜条；一杯无糖绿茶", "dn": "全麦意面+橄榄番茄酱·三文鱼·菠菜"}, {"d": "周四", "en": "THURSDAY", "b": "燕麦碗：苹果·核桃·肉桂", "l": "100% 全麦面包·鹰嘴豆泥·生菜番茄甜椒", "s": "混合坚果一小把；无糖酸奶半杯", "dn": "全麦面+番茄黄瓜羊奶酪四季豆沙拉"}, {"d": "周五", "en": "FRIDAY", "b": "希腊酸奶·草莓·奇亚籽", "l": "全麦皮塔+烤鸡肉·橄榄·番茄·黄瓜·新鲜香草", "s": "果干与浆果各一小份；核桃 8 颗", "dn": "烤三文鱼·全麦藜麦·时令烤蔬菜"}, {"d": "周六", "en": "SATURDAY", "b": "橄榄油煎蛋·全麦吐司", "l": "全麦饭+羊奶酪·葡萄干·四季豆番茄", "s": "蓝莓一小碗；无糖酸奶", "dn": "白豆汤（包心菜胡萝卜洋葱番茄）·烤鳕鱼"}, {"d": "周日", "en": "SUNDAY", "b": "麦片碗：燕麦葡萄干核桃苹果+低脂牛奶", "l": "扁豆鹰嘴豆沙拉：圣女果·芹菜·欧芹·菲达", "s": "混合坚果一小把；绿茶", "dn": "烤鸡·烤南瓜西兰花胡萝卜"}];
+var SUBS=[["橄榄油", "山茶油 / 双低菜籽油（脂肪酸结构相近，国货之光的茶油烟点更高）"], ["深海鱼", "秋刀鱼 / 沙丁鱼 / 鲈鱼 / 带鱼（DHA 含量同样在线，价格亲民）"], ["菲达奶酪", "低脂奶酪 / 豆腐乳少量提味（钠含量控制住）"], ["羽衣甘蓝", "菠菜 / 芥蓝 / 苋菜（深绿叶菜的营养密度一脉相承）"], ["藜麦", "小米 / 糙米 / 荞麦面（全谷物本就有很多答案）"], ["鹰嘴豆", "豆腐 / 毛豆 / 芸豆（豆科家族互通，蛋白质不缺席）"]];
+var KEY='olive_done';
+var done={};
+try{done=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){done={}}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1600)}
+document.getElementById('facts').innerHTML=FACTS.map(function(f){return '<div class="fact"><b>'+f[0]+'</b><span>'+f[1]+'</span></div>'}).join('');
+document.getElementById('rules').innerHTML=RULES.map(function(r,i){return '<div class="rule"><b><i>N°'+(i+1)+'</i>'+r[2]+' '+r[0]+'</b><p>'+r[1]+'</p></div>'}).join('');
+document.getElementById('subs').innerHTML=SUBS.map(function(s){return '<div class="subrow"><span class="a">'+s[0]+'</span><span class="arr">→</span><span class="b">'+s[1]+'</span></div>'}).join('');
+var dow=new Date().getDay(); // 0=周日
+function renderDays(){
+ document.getElementById('days').innerHTML=DAYS.map(function(d,i){
+  var isToday=(i===((dow+6)%7)); // 周一在首位
+  var cls='day'+(done[i]?' done':'')+(isToday?' today':'');
+  return '<div class="'+cls+'" data-i="'+i+'">'
+   +'<div class="dhead"><span class="dw">'+d.d+'</span><span class="de">'+d.en+'</span><span class="tick">'+(done[i]?'✓':'')+'</span></div>'
+   +'<div class="meals">'
+   +'<div class="meal"><div class="mt">早餐 BREAKFAST</div><p>'+d.b+'</p></div>'
+   +'<div class="meal"><div class="mt">午餐 LUNCH</div><p>'+d.l+'</p></div>'
+   +'<div class="meal"><div class="mt">加餐 SNACK</div><p>'+d.s+'</p></div>'
+   +'<div class="meal"><div class="mt">晚餐 DINNER</div><p>'+d.dn+'</p></div>'
+   +'</div></div>';
+ }).join('');
+ var n=Object.keys(done).filter(function(k){return done[k]}).length;
+ document.querySelectorAll('.day .dhead').forEach(function(h){
+  h.onclick=function(e){
+   var day=h.parentElement,i=+day.dataset.i;
+   if(e.target.closest('.tick')&&h===day.querySelector('.dhead')&&e.target.classList.contains('tick')){toggle(i);return}
+   day.classList.toggle('open');
+  };
+ });
+ document.querySelectorAll('.day .tick').forEach(function(t){
+  t.onclick=function(e){e.stopPropagation();toggle(+t.parentElement.parentElement.dataset.i)};
+ });
+}
+function toggle(i){
+ done[i]=!done[i];
+ localStorage.setItem(KEY,JSON.stringify(done));
+ renderDays();
+ var n=Object.keys(done).filter(function(k){return done[k]}).length;
+ if(n===7){toast('ΚΑΛΗ ΟΡΕΞΙ ✦ 7 天餐桌毕业！');}
+ else if(done[i]) toast(DAYS[i].d+'菜单 · 已点亮 '+n+'/7');
+}
+renderDays();
+</script>
+</body>
+</html>
